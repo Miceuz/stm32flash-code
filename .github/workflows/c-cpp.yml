@@ -39,11 +39,13 @@ jobs:
         with: 
           name: stm32flash-bin-win
           path: ./stm32flash.exe
+      - uses: actions/upload-artifact@v3
         if: matrix.os == 'macos-latest'
         with: 
-          name: stm32flash-bin-linux
-          path: ./stm32flash
-        elseif: matrix.os == 'ubuntu-latest'
+          name: stm32flash-bin-win
+          path: ./stm32flash.exe
+      - uses: actions/upload-artifact@v3
+        if: matrix.os == 'ubuntu-latest'
         with: 
           name: stm32flash-bin-macos
           path: ./stm32flash
