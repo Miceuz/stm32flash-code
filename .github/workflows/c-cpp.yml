@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest] 
+        os: [windows-latest, ubuntu-20.04, macos-latest] 
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -45,7 +45,7 @@ jobs:
           name: stm32flash-bin-macos
           path: ./stm32flash
       - uses: actions/upload-artifact@v3
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-20.04'
         with: 
           name: stm32flash-bin-linux
           path: ./stm32flash
